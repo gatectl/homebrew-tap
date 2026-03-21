@@ -6,14 +6,14 @@ class GatectlAgent < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/gatectl/homebrew-tap/releases/download/v0.2.1/gatectl-agent-darwin-arm64.tar.gz"
+      url "https://github.com/gatectl/releases/releases/download/v0.2.1/gatectl-agent-darwin-arm64.tar.gz"
       sha256 "592a6db87acfb6b8ed43287762bb7f28fc961d319e29ffc3b262d17cf52722b6"
 
       def install
         bin.install "gatectl-agent-darwin-arm64" => "gatectl-agent"
       end
     else
-      url "https://github.com/gatectl/homebrew-tap/releases/download/v0.2.1/gatectl-agent-darwin-amd64.tar.gz"
+      url "https://github.com/gatectl/releases/releases/download/v0.2.1/gatectl-agent-darwin-amd64.tar.gz"
       sha256 "179b856849b5a4248f8272b749c5fa4d31179e67b4a3e843d3f4461fc97c3789"
 
       def install
@@ -24,14 +24,14 @@ class GatectlAgent < Formula
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/gatectl/homebrew-tap/releases/download/v0.2.1/gatectl-agent-linux-arm64.tar.gz"
+      url "https://github.com/gatectl/releases/releases/download/v0.2.1/gatectl-agent-linux-arm64.tar.gz"
       sha256 "03b2c1137a45e0ff8924c3da9c399e7d5ebcdda26d3231b591b20710ab5add83"
 
       def install
         bin.install "gatectl-agent-linux-arm64" => "gatectl-agent"
       end
     else
-      url "https://github.com/gatectl/homebrew-tap/releases/download/v0.2.1/gatectl-agent-linux-amd64.tar.gz"
+      url "https://github.com/gatectl/releases/releases/download/v0.2.1/gatectl-agent-linux-amd64.tar.gz"
       sha256 "dedd3f3a8b38a24ef60d970dcb8c6f5cfca737023d11ef4a077452c60028488e"
 
       def install
