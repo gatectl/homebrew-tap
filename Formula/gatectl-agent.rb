@@ -1,20 +1,20 @@
 class GatectlAgent < Formula
   desc "GateCtl agent — AI governance proxy endpoint agent"
   homepage "https://github.com/gatectl/gatectl"
-  version "0.2.1"
+  version "0.4.0-dev"
   license "Proprietary"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/gatectl/releases/releases/download/v0.2.1/gatectl-agent-darwin-arm64.tar.gz"
-      sha256 "592a6db87acfb6b8ed43287762bb7f28fc961d319e29ffc3b262d17cf52722b6"
+      url "https://github.com/gatectl/releases/releases/download/v0.4.0-dev/gatectl-agent-darwin-arm64.tar.gz"
+      sha256 "26a839b9e5bbbebd19d1c13ae1ce3a4ed3c26ff0b05c8c1ecfae66ca90d6fc67"
 
       def install
         bin.install "gatectl-agent-darwin-arm64" => "gatectl-agent"
       end
     else
-      url "https://github.com/gatectl/releases/releases/download/v0.2.1/gatectl-agent-darwin-amd64.tar.gz"
-      sha256 "179b856849b5a4248f8272b749c5fa4d31179e67b4a3e843d3f4461fc97c3789"
+      url "https://github.com/gatectl/releases/releases/download/v0.4.0-dev/gatectl-agent-darwin-amd64.tar.gz"
+      sha256 "a276c6b9230a19cad5c23f916bcf9ce8b96ef22f1b03cfd9fe8de9e7076fab22"
 
       def install
         bin.install "gatectl-agent-darwin-amd64" => "gatectl-agent"
@@ -24,15 +24,15 @@ class GatectlAgent < Formula
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/gatectl/releases/releases/download/v0.2.1/gatectl-agent-linux-arm64.tar.gz"
-      sha256 "03b2c1137a45e0ff8924c3da9c399e7d5ebcdda26d3231b591b20710ab5add83"
+      url "https://github.com/gatectl/releases/releases/download/v0.4.0-dev/gatectl-agent-linux-arm64.tar.gz"
+      sha256 "73a17539c41ccf0f3ed52151f18a1b2249308a3ef54b5ce5b3c1553b12946a19"
 
       def install
         bin.install "gatectl-agent-linux-arm64" => "gatectl-agent"
       end
     else
-      url "https://github.com/gatectl/releases/releases/download/v0.2.1/gatectl-agent-linux-amd64.tar.gz"
-      sha256 "dedd3f3a8b38a24ef60d970dcb8c6f5cfca737023d11ef4a077452c60028488e"
+      url "https://github.com/gatectl/releases/releases/download/v0.4.0-dev/gatectl-agent-linux-amd64.tar.gz"
+      sha256 "08a95b8497537cfd0174442ee957b8c238985119bf5c821198c46cbeadef6c68"
 
       def install
         bin.install "gatectl-agent-linux-amd64" => "gatectl-agent"
@@ -44,17 +44,15 @@ class GatectlAgent < Formula
     <<~EOS
       To connect the agent to your GateCtl server:
 
-        gatectl-agent init --server <server-addr>
+        gatectl-agent init --server <server-addr>:9443 --token <bootstrap-token>
 
-      This will create a config file and register the agent.
+      For local Docker Desktop with self-signed certs:
+
+        gatectl-agent init --server localhost:9443 --token <token> --skip-verify
 
       To start the agent as a background service:
 
         brew services start gatectl-agent
-
-      Or run it manually:
-
-        gatectl-agent --config ~/.gatectl-agent/agent.yaml
     EOS
   end
 
